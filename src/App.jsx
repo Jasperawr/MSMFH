@@ -6,10 +6,10 @@ import OurDoctors from "./views/OurDoctors";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/MSMFH">
       <Routes>
-        <Route path="MSMFH/" element={<Home />} />
-        <Route path="MSMFH/ourdoctors" element={<OurDoctors />} />
+        <Route path="/" element={<Home />} />
+        <Route path="ourdoctors" element={<OurDoctors />} />
       </Routes>
     </Router>
   );
