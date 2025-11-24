@@ -10,34 +10,72 @@ const EventsCard = ({
   time,
   location,
   link,
+  layout = "vertical", // vertical (default) OR horizontal
 }) => {
   const [month, day] = date.split(" ");
+  const isHorizontal = layout === "horizontal";
+
   return (
-    <div className=" rounded-xl hover:shadow-lg transition-all duration-400 ease-in-out flex flex-col justify-between w-[338px] h-[420px] border border-gray-200 bg-white overflow-hidden">
-      <div className=" relative overflow-hidden w-full h-full  ">
+    <div
+      className={
+        isHorizontal
+          ? "rounded-xl hover:shadow-lg transition-all duration-400 ease-in-out flex w-[700px] h-[250px] border border-gray-200 bg-white overflow-hidden"
+          : "rounded-xl hover:shadow-lg transition-all duration-400 ease-in-out flex flex-col justify-between w-[338px] h-[420px] border border-gray-200 bg-white overflow-hidden"
+      }
+    >
+      {/* IMAGE */}
+      <div
+        className={
+          isHorizontal
+            ? "relative overflow-hidden w-[45%] h-full"
+            : "relative overflow-hidden w-full h-full"
+        }
+      >
         <img
           src={img}
           alt=""
           className="w-full h-full object-cover scale-125"
         />
+
+        {/* TOP LABELS */}
         <div className="absolute z-40 top-0 py-3 px-3 w-full flex justify-between">
-          <div className="flex flex-col">
-            <p className="text-[11px] bg-green-600 px-2 rounded-full text-white ">
+          <div>
+            <p className="text-[11px] bg-green-600 px-2 rounded-full text-white">
               {category}
             </p>
           </div>
+
           <div className="rounded-md bg-white p-3 text-center flex flex-col">
             <p className="text-sm text-gray-500">{month}</p>
-            <p className="text-[36px] text-green-500 ">{day}</p>
+            <p className="text-[36px] text-green-500">{day}</p>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col justify-between p-4 pb-7 h-full">
-        <div className="flex flex-col gap-2">
-          <p className="text-lg ">{title}</p>
-          <p className="text-sm text-gray-400">{description}</p>
-        </div>
+      {/* CONTENT */}
+      <div
+        className={
+          isHorizontal
+            ? "flex flex-col justify-between p-4 w-[55%]"
+            : "flex flex-col justify-between p-4 pb-7 h-full"
+        }
+      >
+        {/* KEEPING EXACT VERTICAL DESIGN */}
+        {!isHorizontal && (
+          <div className="flex flex-col gap-2">
+            <p className="text-lg">{title}</p>
+            <p className="text-sm text-gray-400">{description}</p>
+          </div>
+        )}
+
+        {/* HORIZONTAL VERSION CONTENT (slightly adjusted but same styling) */}
+        {isHorizontal && (
+          <div className="flex flex-col gap-2">
+            <p className="text-lg">{title}</p>
+            <p className="text-sm text-gray-500 line-clamp-3">{description}</p>
+          </div>
+        )}
+
         <div className="flex flex-col gap-1">
           <p className="text-[12px] flex items-center">
             <Icon

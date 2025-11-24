@@ -65,7 +65,7 @@ const EventsSection = () => {
           <div className="flex justify-between flex-wrap pt-6 gap-6 mb-5">
             {/* cards here */}
             {services.map((item) => (
-              <EventsCard key={item.title} {...item} />
+              <EventsCard key={item.title} layout="vertical" {...item} />
             ))}
           </div>
 

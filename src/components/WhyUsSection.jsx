@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 
 import lab from "../assets/img/laboratory-team-working-together.jpg";
 
-const WhyUs = () => {
+const WhyUsSection = () => {
   return (
     <section className="flex flex-col items-center py-20 bg-white">
       <div className="w-[1100px] flex justify-between gap-[119px]">
@@ -114,4 +114,4 @@ const WhyUs = () => {
   );
 };
 
-export default WhyUs;
+export default WhyUsSection;
