@@ -31,13 +31,13 @@ function App() {
 
         {/* About Us */}
         <Route path="about" element={<AboutUs />} />
-        <Route path="aboutus" element={<AboutUs />} />
-        <Route path="history" element={<History />} />
-        <Route path="mission&vision" element={<MissionVision />} />
-        <Route path="qualitypolicy" element={<QualityPolicy />} />
-        <Route path="hmo" element={<HMO />} />
-        <Route path="leadership" element={<Leadership />} />
-        <Route path="careers" element={<Career />} />
+        <Route path="about/aboutus" element={<AboutUs />} />
+        <Route path="about/history" element={<History />} />
+        <Route path="about/mission&vision" element={<MissionVision />} />
+        <Route path="about/qualitypolicy" element={<QualityPolicy />} />
+        <Route path="about/hmo" element={<HMO />} />
+        <Route path="about/leadership" element={<Leadership />} />
+        <Route path="about/careers" element={<Career />} />
 
         <Route path="new&events/all" element={<NewAndEvents />} />
       </Routes>

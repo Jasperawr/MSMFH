@@ -18,13 +18,13 @@ import dummy from "../../assets/img/dummy.jpg";
 
 const HMO = () => {
   const tabs = [
-    { label: "About Us", link: "aboutus" },
-    { label: "History", link: "history" },
-    { label: "Mission & Vision", link: "mission&vision" },
-    { label: "Quality Policy", link: "qualitypolicy" },
-    { label: "HMO", link: "hmo" },
-    { label: "Leadership", link: "leadership" },
-    { label: "Careers", link: "careers" },
+    { label: "About Us", link: "/about/aboutus" },
+    { label: "History", link: "/about/history" },
+    { label: "Mission & Vision", link: "/about/mission&vision" },
+    { label: "Quality Policy", link: "/about/qualitypolicy" },
+    { label: "HMO", link: "/about/hmo" },
+    { label: "Leadership", link: "/about/leadership" },
+    { label: "Careers", link: "/about/careers" },
   ];
 
   const hmos = [

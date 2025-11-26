@@ -1,41 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import TabItem from "./TabItem";
+import { useNavigate } from "react-router-dom";
 
 const TabList = ({ items }) => {
+  const navigate = useNavigate();
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Detect active index from URL
+  // Detect active tab from URL
   useEffect(() => {
-    const currentUrl = window.location.href;
+    const path = window.location.pathname;
 
-    // Check if the URL contains the link of any tab
-    const foundIndex = items.findIndex((item) =>
-      currentUrl.includes(item.link)
-    );
+    const foundIndex = items.findIndex((item) => item.link === path);
 
     if (foundIndex !== -1) {
       setActiveIndex(foundIndex);
-    } else {
-      setActiveIndex(0); // default to first tab (All)
     }
   }, [items]);
 
   const handleSelectChange = (e) => {
     const index = Number(e.target.value);
     setActiveIndex(index);
-
-    const selectedItem = items[index];
-    if (selectedItem && selectedItem.link) {
-      window.location.href = selectedItem.link;
-    }
+    navigate(items[index].link);
   };
 
   return (
     <div className="p-5 bg-white w-[350px] rounded-md relative">
       {isMobile ? (
-        // Mobile dropdown
         <select
           className="w-full p-2 border border-gray-300 rounded-md"
           value={activeIndex}
@@ -48,7 +40,6 @@ const TabList = ({ items }) => {
           ))}
         </select>
       ) : (
-        // Desktop vertical tabs
         <div className="flex flex-col gap-3 sticky top-30">
           {items.map((item, index) => (
             <TabItem
@@ -58,7 +49,7 @@ const TabList = ({ items }) => {
               active={index === activeIndex}
               onClick={() => {
                 setActiveIndex(index);
-                window.location.href = item.link;
+                navigate(item.link);
               }}
             />
           ))}

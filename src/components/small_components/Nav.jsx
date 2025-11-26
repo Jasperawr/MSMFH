@@ -87,15 +87,15 @@ const Nav = () => {
                   {/* DESKTOP HOVER SUBMENU */}
                   <div className="absolute left-0 top-[90px] hidden sm:group-hover:block bg-white shadow-md rounded-b-lg w-[190px] z-20">
                     {[
-                      { name: "History", path: "/history" },
+                      { name: "History", path: "/about/history" },
                       {
                         name: "Mission & Vision",
-                        path: "/mission&vision",
+                        path: "/about/mission&vision",
                       },
-                      { name: "Quality Policy", path: "/qualitypolicy" },
-                      { name: "HMO", path: "/hmo" },
-                      { name: "Leadership", path: "/leadership" },
-                      { name: "Careers", path: "/careers" },
+                      { name: "Quality Policy", path: "/about/qualitypolicy" },
+                      { name: "HMO", path: "/about/hmo" },
+                      { name: "Leadership", path: "/about/leadership" },
+                      { name: "Careers", path: "/about/careers" },
                     ].map((sub) => (
                       <Link
                         key={sub.name}
