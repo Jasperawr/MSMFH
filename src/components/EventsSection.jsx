@@ -1,7 +1,6 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 
-import ServicesCards from "./small_components/ServicesCards";
 import EventsCard from "./small_components/EventsCard";
 
 import image1 from "../assets/img/eventsImg/high-angle-doctor-checking-patient.jpg";
@@ -46,37 +45,37 @@ const EventsSection = () => {
   ];
 
   return (
-    <section className="flex flex-col items-center py-20 ">
-      <div className="w-[1100px] flex justify-between gap-[119px]">
-        <div className="flex flex-col items-center gap-1 w-full">
-          <div className="flex flex-col items-center gap-1">
-            <div className="flex">
-              <p className="text-[11px] bg-[#F0FDF4] px-2 py-[2px] rounded-full font-semibold text-[#267F1E] ">
-                Our Services
-              </p>
-            </div>
-            <p className="text-[36px] leading-16">Comprehensive Medical Care</p>
-            <p className=" text-[16px] text-gray-500">
-              From preventive care to specialized treatment, we offer a complete
-              range of medical services
-            </p>
-          </div>
-
-          <div className="flex justify-between flex-wrap pt-6 gap-6 mb-5">
-            {/* cards here */}
-            {services.map((item) => (
-              <EventsCard key={item.title} layout="vertical" {...item} />
-            ))}
-          </div>
-
-          <a
-            href="#"
-            className="flex justify-center gap-5 items-center text-green-500 border border-green-500 text-sm  py-2 px-5 rounded-md"
-          >
-            View more
-            <Icon icon="stash:arrow-right-duotone" width="20" height="20" />
-          </a>
+    <section className="flex flex-col items-center py-16 px-4 md:px-6 lg:px-0">
+      <div className="w-full max-w-[1100px] flex flex-col items-center gap-6">
+        {/* Header */}
+        <div className="flex flex-col items-center gap-2 text-center">
+          <p className="text-[10px] sm:text-[11px] bg-[#F0FDF4] px-3 py-1 rounded-full font-semibold text-[#267F1E]">
+            News & Events
+          </p>
+          <p className="text-2xl sm:text-3xl md:text-4xl ">
+            Comprehensive Medical Care
+          </p>
+          <p className="text-sm sm:text-base text-gray-500 max-w-[600px]">
+            From preventive care to specialized treatment, we offer a complete
+            range of medical services
+          </p>
         </div>
+
+        {/* Cards */}
+        <div className="flex flex-wrap justify-center gap-6 pt-6 mb-5">
+          {services.map((item) => (
+            <EventsCard key={item.title} layout="vertical" {...item} />
+          ))}
+        </div>
+
+        {/* Button */}
+        <a
+          href="/news&events/all"
+          className="flex justify-center gap-2 sm:gap-3 items-center text-green-500 border border-green-500 text-sm py-2 px-4 sm:px-6 rounded-md hover:bg-green-50 transition"
+        >
+          View more
+          <Icon icon="stash:arrow-right-duotone" width="20" height="20" />
+        </a>
       </div>
     </section>
   );

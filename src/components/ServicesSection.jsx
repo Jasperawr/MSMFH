@@ -1,7 +1,5 @@
 import React from "react";
 import { Icon } from "@iconify/react";
-
-import hallway from "../assets/img/empty-hallway-background.jpg";
 import ServicesCards from "./small_components/ServicesCards";
 
 const ServicesSection = () => {
@@ -57,37 +55,40 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="flex flex-col items-center py-20 ">
-      <div className="w-[1100px] flex justify-between gap-[119px]">
-        <div className="flex flex-col items-center gap-1 w-full">
-          <div className="flex flex-col items-center gap-2">
-            <div className="flex">
-              <p className="text-[11px] bg-[#F0FDF4] px-2 py-[2px] rounded-full font-semibold text-[#267F1E] ">
-                Our Services
-              </p>
-            </div>
-            <p className="text-[36px] leading-16">Comprehensive Medical Care</p>
-          </div>
-          <p className=" text-[16px] text-gray-500">
-            From preventive care to specialized treatment, we offer a complete
-            range of medical services
+    <section className="flex flex-col items-center py-16 sm:py-20">
+      {/* MAIN CONTAINER */}
+      <div className="w-full max-w-[1100px] px-5 flex flex-col items-center gap-6">
+        {/* TITLE */}
+        <div className="flex flex-col items-center gap-2 text-center">
+          <p className="text-[10px] sm:text-[11px] bg-[#F0FDF4] px-3 py-[3px] rounded-full font-semibold text-[#267F1E]">
+            Our Services
           </p>
 
-          <div className="flex justify-between flex-wrap pt-6 gap-6 mb-5">
-            {/* cards here */}
-            {services.map((item) => (
-              <ServicesCards key={item.title} {...item} />
-            ))}
-          </div>
+          <p className="text-[24px] sm:text-[36px] leading-tight text-[#333]">
+            Comprehensive Medical Care
+          </p>
 
-          <a
-            href="#"
-            className="flex justify-center gap-5 items-center bg-green-600 text-white text-sm  py-2 px-5 rounded-md hover:bg-green-700 transition-all duration-200 ease-in-out"
-          >
-            Find a Doctor
-            <Icon icon="stash:arrow-right-duotone" width="20" height="20" />
-          </a>
+          <p className="text-[15px] sm:text-[16px] text-gray-500 max-w-[650px]">
+            From preventive care to specialized treatment, we offer a complete
+            range of medical services.
+          </p>
         </div>
+
+        {/* CARDS GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 w-full pt-4">
+          {services.map((item) => (
+            <ServicesCards key={item.title} {...item} />
+          ))}
+        </div>
+
+        {/* BUTTON */}
+        <a
+          href="/services"
+          className="flex justify-center gap-3 items-center bg-green-600 text-white text-sm py-2.5 px-6 rounded-md hover:bg-green-700 transition-all duration-200"
+        >
+          Find a Doctor
+          <Icon icon="stash:arrow-right-duotone" width="20" height="20" />
+        </a>
       </div>
     </section>
   );

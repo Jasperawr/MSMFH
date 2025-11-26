@@ -8,12 +8,12 @@ const DoctorCard = ({
   contact = {},
 }) => {
   return (
-    <div className="w-[1100px] h-[380px] bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm flex gap-5">
-      <div className="w-[300px] h-full overflow-hidden">
+    <div className="sm:w-[1100px] sm:h-[380px} bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm flex sm:flex-row flex-col gap-5">
+      <div className="w-full md:w-[300px] h-[400px] md:h-[380px] overflow-hidden">
         <img src={img} alt={name} className="w-full h-full object-cover" />
       </div>
 
-      <div className="flex pt-15">
+      <div className="flex sm:pt-15 pl-5 sm:flex-row flex-col md:gap-0 gap-5">
         <div className="flex flex-col justify-start w-[350px]">
           <p className="text-[30px] font-medium">{name}</p>
 

@@ -1,28 +1,29 @@
-// ServiceItem.jsx
 import React from "react";
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 
-const BarItem = ({ label, active, onClick }) => {
+const TabItem = ({ label, link, active, onClick }) => {
   return (
-    <button
+    <Link
+      to={link}
       onClick={onClick}
-      className={`w-full flex justify-between items-center px-5 py-3 rounded-md border transition-all duration-200
+      className={`w-full flex justify-between items-center px-5 py-3   transition-all duration-200
         ${
           active
-            ? "bg-green-600 text-white border-green-600"
-            : "bg-green-50 text-green-800 border-green-100"
+            ? "bg-green-600 text-white "
+            : " text-green-800 hover:bg-green-50"
         }
       `}
     >
       <span className="text-sm font-medium text-wrap text-start">{label}</span>
       <Icon
         icon="oui:arrow-right"
-        width="20"
-        height="20"
+        width="16"
+        height="16"
         className={active ? "text-white" : "text-green-700"}
       />
-    </button>
+    </Link>
   );
 };
 
-export default BarItem;
+export default TabItem;

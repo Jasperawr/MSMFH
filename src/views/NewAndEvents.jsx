@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Nav from "../components/small_components/Nav";
 import Title from "../components/small_components/Title";
 import ContactHead from "../components/ContactHead";
@@ -10,6 +10,7 @@ import HeroHeader from "../components/small_components/HeroHeader";
 import TabList from "../components/small_components/TabList";
 
 import { Icon } from "@iconify/react";
+import { useMediaQuery } from "react-responsive";
 
 import image1 from "../assets/img/eventsImg/high-angle-doctor-checking-patient.jpg";
 import image2 from "../assets/img/eventsImg/close-up-people-studying-language_23-2149300723.jpg";
@@ -52,7 +53,16 @@ const NewAndEvents = () => {
     },
   ];
 
-  const tabs = ["News", "Events", "Program", "Seminar"];
+  const tabs = [
+    { label: "All", link: "all" },
+    { label: "News", link: "news" },
+    { label: "Events", link: "events" },
+    { label: "Program", link: "program" },
+    { label: "Seminar", link: "seminar" },
+  ];
+
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   return (
     <div>
       <ContactHead />
@@ -69,16 +79,19 @@ const NewAndEvents = () => {
         showSubSpecialization={false}
         showClear={false}
       />
-
       <div className="w-full flex flex-col items-center">
-        <div className="flex justify-between flex-wrap gap-6 mb-5 w-[1100px]">
-          <div className="flex justify-center">
+        <div className="flex md:flex-row flex-col md:items-start items-center gap-6 mb-10 w-[1100px]">
+          <div className="flex flex-col ms:flex-row relative">
             <TabList items={tabs} />
           </div>
           <div className="flex flex-col gap-6">
             {/* cards here */}
             {services.map((item) => (
-              <EventsCard key={item.title} layout="horizontal" {...item} />
+              <EventsCard
+                key={item.title}
+                layout={isMobile ? "vertical" : "horizontal"}
+                {...item}
+              />
             ))}
           </div>
         </div>

@@ -61,6 +61,7 @@ const OurDoctors = () => {
       },
     },
   ];
+
   return (
     <div>
       <ContactHead />
@@ -78,7 +79,7 @@ const OurDoctors = () => {
       />
 
       <div className="w-full flex flex-col items-center">
-        <div className="flex flex-col justify-between flex-wrap gap-6 mb-5 w-[1100px]">
+        <div className="flex flex-col justify-between flex-wrap gap-6 mb-5 sm:w-[1100px]">
           {/* cards here */}
           {services.map((item) => (
             <DoctorCard key={item.title} {...item} />

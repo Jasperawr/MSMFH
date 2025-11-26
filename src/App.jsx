@@ -4,14 +4,42 @@ import "./App.css";
 import Home from "./views/Home";
 import OurDoctors from "./views/OurDoctors";
 import NewAndEvents from "./views/NewAndEvents";
+// import OurServices from "./views/OurServices";
+import MedicalServices from "./views/services/MedicalServices";
+import Facilities from "./views/services/Facilities";
+import PatientRooms from "./views/services/PatientRooms";
+import History from "./views/about/History";
+import AboutUs from "./views/about/AboutUs";
+import MissionVision from "./views/about/MissionVision";
+import QualityPolicy from "./views/about/QualitPolicy";
+import HMO from "./views/about/HMO";
+import Leadership from "./views/about/Leaedership";
+import Career from "./views/about/Career";
 
 function App() {
   return (
-    <Router basename="/MSMFH">
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="ourdoctors" element={<OurDoctors />} />
-        <Route path="new&events" element={<NewAndEvents />} />
+
+        {/* Our Services */}
+        <Route path="services" element={<MedicalServices />} />
+        <Route path="services/medicalservices" element={<MedicalServices />} />
+        <Route path="services/facilities" element={<Facilities />} />
+        <Route path="services/patientrooms" element={<PatientRooms />} />
+
+        {/* About Us */}
+        <Route path="about" element={<AboutUs />} />
+        <Route path="aboutus" element={<AboutUs />} />
+        <Route path="history" element={<History />} />
+        <Route path="mission&vision" element={<MissionVision />} />
+        <Route path="qualitypolicy" element={<QualityPolicy />} />
+        <Route path="hmo" element={<HMO />} />
+        <Route path="leadership" element={<Leadership />} />
+        <Route path="careers" element={<Career />} />
+
+        <Route path="new&events/all" element={<NewAndEvents />} />
       </Routes>
     </Router>
   );
